@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatando Strings e Numeros</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var nome = window.prompt('Qual é o seu nome?')
+        document.write(`Ola!, ${nome} seu nome tem ${nome.length} letras. `)
+        document.write(`Seu nome em maiusculas fica ${nome.toUpperCase()} `)
+        document.write(`Seu nome em minusculas fica ${nome.toLowerCase()} `)
+
+        /*
+        Formatando numeros:
+        var n1 = 4532.2
+        n1.toFixed() == Dentro do parentese sera colocado quantas casas decimais tera no valor. Ex: n1.toFixed(2) = 4532.20
+        Transformando o valor em Real, Dolar, Euro, etc..:
+        n1.toLocalString('pt-BR', (style: 'currency', currency: 'BRL')) - Vai pegar o local colocado que nesse caso é no Brasil, o estilo vai ser dinheiro e o dinheiro sera BRL/Real. Pra transformar em dolar é só mudar o BRL para USD, e por ai vai.
+        */
+    </script>
+</body>
+</html>

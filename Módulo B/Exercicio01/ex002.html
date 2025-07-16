@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de dados</title>
+    <style>
+        body {
+            background-color: rgb(140, 93, 184);
+            color: white;
+            font: normal 15pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ola Mundo!</h1>
+    <p>Ja me livrei da maldição!</p>
+    <script>
+        var n1 = Number.parseInt(window.prompt('Digite um numero')) // Sem o Number valor retornavel: String. Com o Number: Numero
+        var n2 = Number.parseInt(window.prompt('Digite outro numero'))
+        var s = n1 + n2
+        window.alert('A soma dos numeros é ' + String(s))
+
+        /*
+        Explicação: Usamos o Number para fazer a conversão de um valor, pois nesse exemplo usamos o prompt e o prompt retorna uma string, mesmo tendo digitado um numero. E tendo dois valores de string o + não ira fazer a soma mas sim a concatenação, pois o + tem dois tipo de uso, o de concatenação que para ser feito tem que haver dois valores de string e o + para soma, que para ser feito tem que haver dois valores numericos.
+        */
+
+        /*
+        Number: Number.parseInt - Fara a converção para numeros inteiros
+        Number: Number.parseFloat - Fara a converção para numeros com virgulas/quebrados
+        Number: Number - Fara a converção pro tipo definido, pode ser um valor inteiro quanto um quebrado, o próprio number vai decidir de acordo com o valor enviado
+        */
+
+        /*
+        Converção para String:
+        String(n) - Vai converter para String oque estiver entre ()
+        n.toString - O valor sera convertido pra String
+        */
+
+        /*
+        Formatando String:
+        var s = 'JavaScript'
+        'Estou aprendendo s' == Não faz interpolação
+        'Estou aprendendo'+ s == Usa concatenação
+        `Estou aprendendo ${s}` == Usa template string(Melhor para leitura do código, com concatenação é facil de se perder e confundir)
+        s.length == Quantas caracteres a string tem
+        s.toUpperCase() == Todas as letras para MAIUSCULAS
+        s.toLowerCase() == Todas as letras para minusculas
+        */
+    </script>
+</body>
+</html>
