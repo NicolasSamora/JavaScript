@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticndo JS</title>
+    <style>
+        body {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*      Uso de prompt, concatenação e variaveis
+        var nome = window.prompt('Digite seu nome!')
+        var sobrenome = window.prompt('Agora digite seu sobrenome!')
+        var idade = Number(window.prompt('Qual a sua idade?'))
+
+        window.alert('Olá, é um prazer te conhecer ' + nome + sobrenome + ' de ' + idade + ' anos!')
+        */
+
+        window.alert('Vou descobrir sua idade!')
+        var data_atual = Number(window.prompt('Qual o ano atual?'))
+        var data_nasc = Number(window.prompt('Qual seu ano de nascimento?'))
+        var idade = data_atual - data_nasc
+
+        document.write(`Estamos no ano de ${data_atual} e sua data de nascimento é no ano de ${data_nasc}, logo sua idade é ${idade}`)
+    </script>
+</body>
+</html>
