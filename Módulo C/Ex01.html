@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendendo o DOM</title>
+    <style>
+        body {
+            background-color: rgb(165, 122, 42);
+            font: normal 18px Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="t1">Iniciando Estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JS</p>
+    <div class="msg">Clique aqui!</div>
+    <script>
+        
+        var p1 = document.getElementsByTagName('p')[0]
+        p1.innerText = "Texto modificado por JS"
+
+        /*
+        var titulo = document.getElementById('t1')
+        titulo.style.color = 'white'
+        */
+
+        var titulo = document.querySelector('h1#t1')
+        titulo.style.color = 'white'
+
+        /* 
+        var mensagem = document.getElementsByClassName('msg')[0]
+        mensagem.style.color = 'red'
+        */
+
+        var mensagem = document.querySelector('div.msg')
+        mensagem.style.color = 'red'
+
+        
+    </script>
+
+</body>
+</html>
