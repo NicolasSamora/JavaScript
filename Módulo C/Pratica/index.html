@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Praticando o uso de DOM</h1>
+
+    <!--Alternando o conteudo de uma div por id-->
+    <div id="mensagem">Clique aqui!</div>
+    <script>
+        let div = document.getElementById("mensagem")
+        div.innerText = "Ola!"
+    </script>
+
+    <!--Mudando a cor de fundo da pagina-->
+    <script>
+        document.body.style.background = 'lightblue'
+    </script>
+
+    <!--Selecionando parágrafos e alterando seus textos-->
+    <p>Texto 1</p>
+    <p>Texto 2</p>  
+    <script>
+        let para = document.getElementsByTagName('p')
+        para[0].innerText = "Texto principal"
+    </script>
+
+    <!--Usando queryselector-->
+    <div class="destaque">Conteudo importante!</div>
+    <script>
+        let dest = document.querySelector('.destaque')
+        dest.style.color = 'red'
+    </script>
+
+    <!--Obtendo conteudo formatado com innerHTML-->
+    <p id="info"><strong>Informação interessante</strong></p>
+    <script>
+        let info = document.getElementById('info')
+        alert(info.innerHTML)
+    </script>
+</body>
+</html>
