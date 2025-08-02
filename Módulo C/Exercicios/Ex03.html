@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        body {
+            font: normal 18px Arial;
+        }
+        #res {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="ca1" id="ca1"> +
+    <input type="number" name="ca2" id="ca2">
+    <input type="button" value="Enter" onclick="somar()">
+    <div id="res">Resposta:</div>
+    
+    <script>
+        function somar(){
+            let ca1 = document.getElementById('ca1')
+            let ca2 = document.querySelector('#ca2')
+            let res = document.getElementById('res')
+            let n1 = Number(ca1.value)
+            let n2 = Number(ca2.value)
+            let soma = n1 + n2
+            res.innerHTML = `A soma entre ${n1} e ${n2} é ${soma}`
+        }
+    </script>
+</body>
+</html>
