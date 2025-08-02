@@ -17,12 +17,29 @@
     </style>
 </head>
 <body>
-    <div id="area" onclick="clicar()">
+    <div id="area">
         Interaja..
     </div>
     <script>
+        //Escopo global
+        let area = document.getElementById('area')//método não recomendavel
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+
         function clicar() {
-            let area = document.get
+            //Escopo local 
+            // let area = document.getElementById('area'): Esse código só ira funcionar nessa function, as outras n podem acessar a variavel
+            
+            area.innerText = 'Clicou!'
+            area.style.background = 'green'
+        }
+        function entrar() {
+            area.innerText = 'Entrou'
+        }
+        function sair() {
+            area.innerText = 'Saiu'
+            area.style.background = 'aqua'
         }
     </script>
 </body>
