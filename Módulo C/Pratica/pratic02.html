@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando DOM</title>
+</head>
+<body>
+    <input type="text" id="CampoTexto" placeholder="Digite algo" >
+    <button onclick="mostrarTexto()" value="mostrar">Mostrar</button>
+    <p id="res"></p>
+
+    <script>
+        function mostrarTexto() {
+            let text = document.getElementById('CampoTexto')
+            let res = document.getElementById('res')
+            let mostrar = (text.value)
+            res.innerText = mostrar
+
+            //Limpa o campo input após clicar em "mostrar"
+            text.value = ''
+        }
+    </script>
+</body>
+</html>

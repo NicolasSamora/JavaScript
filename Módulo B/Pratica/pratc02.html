@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando O Uso De Operadores</title>
+</head>
+<body>
+    <script>
+        let nome = window.prompt("Digite o nome do aluno: ")
+        let n1 = Number(window.prompt("Primeira nota: "))
+        let n2 = Number(window.prompt("Segunda nota: "))
+        let notaf = (n1 + n2)/2
+
+        
+        document.write(`O aluno ${nome} tirou as notas ${n1} e ${n2}.<br>`);
+        document.write(`Com a média ${notaf.toFixed(2)}, o aluno esta <strong>${notaf >= 6.5 ? "APROVADO" : "REPROVADO"}</strong>.`);
+    </script>
+</body>
+</html>
