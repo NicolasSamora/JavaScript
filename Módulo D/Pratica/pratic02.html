@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Você é estrangeiro ?</h1>
+    Nome: <input type="text" name="nome" id="nome">
+    Pais: <input type="text" name="pais" id="pais">
+    <input type="button" value="Verificar" onclick="nasc()">
+    <p id="res"></p>
+
+    <script>
+        function nasc() {
+            let nome = document.getElementById('nome')
+            let pais = document.querySelector('#pais')
+            let res = document.getElementById('res')
+            let nacionalidade = (pais.value)
+            let inome = (nome.value)
+
+            res.innerHTML = `<p> Olá ${inome} </P`
+            
+            if (nacionalidade != 'Brasil') {
+                res.innerHTML += "<p> Você é <strong>estrangeiro</strong> </p>"
+            } else {
+                res.innerHTML += "<p> Você é <strong>brasileiro</strong> </p>"
+            }
+
+            pais.value = ''
+            nome.value = ''
+        }
+    </script>
+
+</body>
+</html>
