@@ -20,6 +20,12 @@ section {
     box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.281);
 }
 
+img {
+    border-radius: 50%;
+    height: 260px;
+    width: 260px;
+}
+
 footer {
     color: white;
     text-align: center;
