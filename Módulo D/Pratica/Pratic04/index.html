@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mensagem de Boas-Vindas</title>
+</head>
+<body>
+    <div id="container">
+        <div id="conteudo">
+            <h1>Digite seu Nome</h1>
+            <input type="text" name="campo-nome" id="campo-nome">
+            <input id="botao" type="button" value="Enviar" onclick="enviar()">
+            <p id="res"></p>
+        </div>
+    </div>
+</body>
+<script>
+    function enviar() {
+        let nome = document.getElementById('campo-nome')
+        let res = document.getElementById('res')
+        let enviar = (nome.value)
+        let p = document.createElement('p')
+        p.innerHTML = `Boas-Vindas! ${nome.value}`
+
+        if(nome.value.length == '') {
+            window.alert('[ERRO!]Campo não preenchido')
+        }
+
+        res.appendChild(p)
+    }
+</script>
+</html>
