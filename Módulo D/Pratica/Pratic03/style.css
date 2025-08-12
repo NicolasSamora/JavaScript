@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font: normal 18px Arial;
+    background-color: rgb(90, 84, 84);
+    height: 100vh;
+    transition: background-color 0.5s ease;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);
+    color: white;
+    padding-top: 10px ;
+}
+
+#container-botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* centralizando os input e deixando o titulo no topo*/
+    height: calc(100vh - 100px);
+}
+
+.botao {
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+    font-size: large;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.349);
+    border: none;
+}
+
+.botao:hover {
+    background-color: rgba(0, 0, 0, 0.247);
+    color: rgb(255, 255, 255);
+}

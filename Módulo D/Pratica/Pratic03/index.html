@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Alternando Cor de Fundo </title>
+</head>
+<body>
+    <h1>Precione os Botões para Mudar o Fundo de Cor </h1>
+        <div id="container-botoes">
+            <div>
+                <input id="azul" class="botao" type="button" value="AZUL" onclick="cor(event)">
+            </div>
+            <div>
+                <input id="ver" class="botao" type="button" value="VERMELHO" onclick="cor(event)">
+            </div>
+            <div>
+                <input id="ama" class="botao" type="button" value="AMARELO" onclick="cor(event)">
+            </div>
+        </div>
+</body>
+<script>
+    function cor(event) {
+        let botao = event.target //Pegando qual input foi clicado, com a função recebendo um parametro
+
+        //Verificando qual foi clicado pelo id
+        if (botao.id == 'azul') {
+            document.body.style.backgroundColor = 'rgb(29, 92, 165)'
+        } else if (botao.id == 'ver') {
+            document.body.style.backgroundColor = 'rgb(158, 40, 40)'
+        } else if (botao.id == 'ama') {
+            document.body.style.backgroundColor = 'rgb(221, 184, 17)'
+        }
+    }
+</script>
+</html>
