@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contador de Cliques</title>
+</head>
+<body>
+    <h1>Contador de Cliques</h1>
+    <div id="container">
+         <div id="conteudo">
+            <input id="botao" type="button" value="Clique" onclick="contador()">
+            <input id="botao" type="button" value="Zerar" onclick="resetar()">
+            <p id="res"></p>
+        </div>
+    </div>
+</body>
+<script>
+    let cliques = 0 //Variavel global para contar os cliques
+    function contador() {
+        let res = document.getElementById('res')
+
+        cliques++
+        res.innerHTML = `Cliques: ${cliques}`
+    }
+    function resetar() {
+        let cliques = 0
+
+        res.innerHTML = `Cliques: ${cliques}`
+    }
+</script>
+</html>
