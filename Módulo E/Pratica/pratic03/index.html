@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mini Calculadora</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Digite os Valores abaixo!</h1>
+        <div class="num">
+             <input type="number" name="txtn1" id="txtn1">
+        </div>
+        <div class="num">
+            <input type="number" name="txtn2" id="txtn2">
+        </div>
+        <div id="botao">
+            <input type="button" value="Somar" id="soma" class="botoes" onclick="calcular(event)">
+            <input type="button" value="Subtrair" id="sub" class="botoes" onclick="calcular(event)">
+            <input type="button" value="Multiplicar" id="mul" class="botoes" onclick="calcular(event)">
+            <input type="button" value="Dividir" id="div" class="botoes" onclick="calcular(event)">
+        </div>
+        <input type="text" id="res">
+    </div>
+</body>
+<script>
+    let txtn1 = document.getElementById('txtn1')
+    let txtn2 = document.getElementById('txtn2')
+    let res = document.getElementById('res')
+
+    function calcular(event) {
+        let botao = event.target
+        let nres = 0
+        let n1 = Number(txtn1.value)
+        let n2 = Number(txtn2.value)
+
+        if (txtn1.value.length == 0 || txtn2.value.length == 0) { 
+            window.alert('Digite os dois valores!')
+            return
+        } else if(botao.id == 'soma') {
+        nres = n1 + n2
+        } else if(botao.id == 'sub') {
+        nres = n1 - n2
+        } else if(botao.id == 'mul') {
+        nres = n1 * n2
+        } else if(botao.id == 'div') {
+            if(n2 == 0) {
+                window.alert('Não é possivel dividir por zero!')
+            } else {
+                nres = n1 / n2
+            }
+        }
+        res.value = nres
+    }
+</script>
+</html>
