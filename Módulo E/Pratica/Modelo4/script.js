@@ -1,18 +1,18 @@
 function tabuada() {
-    let num = document.getElementById('num')
+    let n1 = document.getElementById('num')
     let tab = document.getElementById('seltab')
-    if(num.value.length == 0){ 
-        window.alert('Digite algum numero!')
-    } else {
-        let n = Number(num.value)
-        tab.innerHTML = ''
-        for(let c = 1; c <= 10; c++) {
 
-            //Criando o elemento option
+    if(n1.value.length == 0) {
+        window.alert('Digite um numero!')
+    } else {
+        let n = Number(n1.value)
+        tab.innerHTML = ''
+
+        for(let c = 1; c <= 10; c++) {
             let item = document.createElement('option')
-            //Inserindo os elementos no option
+
             item.text = `${n} X ${c} = ${n*c}`
-            tab.appendChild(item) 
+            tab.appendChild(item)
         }
     }
 }
