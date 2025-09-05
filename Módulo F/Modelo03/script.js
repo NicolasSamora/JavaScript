@@ -14,7 +14,7 @@ function numeros(n) {
 
 //Verificando se o numero da lista ja foi digitado
 function lista(n, l) {
-    if( l != Number(n)) {
+    if( l.indexOf(Number(n)) != -1) {
         return true
     } else {
         return false
@@ -22,7 +22,7 @@ function lista(n, l) {
 }
 
 function adicionar() {
-    if(numeros(num.value) && lista(num.value, valores)) {
+    if(numeros(num.value) && !lista(num.value, valores)) {
         //Armazenando os numeros digitados em um array
         valores.push(Number(num.value))
 
@@ -33,10 +33,35 @@ function adicionar() {
         window.alert('Valor invalido ou ja encontrado na lista!')
     }
     num.value = ''
+    num.focus()
 }
 
 function finalizar() {
+    if(valores.length == 0) {
+        window.alert("Adicione os valores antes de finalizar!")
+    } else {
+        let tot = valores.length //Tot recebe o tamanho do array
+        let maior = valores[0] //Maior recebe o valor do indice[0]
+        let menor = valores[0] //Menor recebe o valor de indice[0]
+        let soma = 0
+        let media = 0
 
+        for(let c in valores){
+            soma += valores[c]
+            if(valores[c] > maior){
+                maior = valores[c]
+            }
+            if(valores[c] < menor){
+                menor = valores[c]
+            }
+            media = soma / tot
+        }
+        res.innerHTML = `<p>Ao todo, temos ${tot} valores cadastrados</P>`
+        res.innerHTML += `<p>O maior valor cadastrado foi ${maior}</p>`
+        res.innerHTML += `<p>O menor valor cadastrado foi ${menor}</p>`
+        res.innerHTML +=  `<p>A soma entre os valores cadastrados é de ${soma}`
+        res.innerHTML += `<p>A media dos valores cadastrados é de ${media.toFixed(2)}`
+    }
 }
 
 function Limpdado() {

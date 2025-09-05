@@ -29,24 +29,10 @@ section {
     box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.281);
 }
 
-#msg {
-    font: normal 20px Arial;
-    text-align: center;
-    text-shadow: 2px 2px solid rgba(0, 0, 0, 0.37) ;
-    padding-bottom: 5px;
+#res {
+    padding-top: 10px;
+    line-height: 2em;
 }
-
-#foto {
-    text-align: center;
-}
-
-#imagem {
-    box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.103) ;
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
-}
-
 footer {
     color: rgb(255, 255, 255);
     text-align: center;
