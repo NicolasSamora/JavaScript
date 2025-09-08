@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Nomes</title>
+</head>
+<body>
+    <header>
+        <h1>Lista de Nomes</h1>
+    </header>
+    <section>
+        <input type="text" name="txtname" id="txtname">
+        <input type="button" value="Adicionar" onclick="adicionar()">
+        <input type="button" value="Pesquisar" onclick="pesquisar()">
+        <br><br><select name="lista" id="lista" size="8"></select>
+        <br><input type="button" value="Remover" onclick="remover()">
+    </section>
+</body>
+<script>
+    let nome = document.getElementById("txtname")
+    let lis = document.getElementById("lista")
+    let nomes = []
+
+    function adicionar(){
+        if(nome.value == 0){
+            window.alert("Digite um nome para ser cadastrado!")
+        } else if(nomes.includes(nome.value)) { //Verificando se o nome ja foi cadastrado
+            window.alert("Esse nome ja foi cadastrado!")
+        } else {
+            nomes.push(nome.value)
+            let item = document.createElement('option')
+            item.text = `${nome.value} foi cadastrado!`
+            lis.appendChild(item)
+
+            nome.value = ''
+            nome.focus()
+        }
+    }
+
+    //Removendo nomes cadastrados
+    function remover(){
+        let indice = lis.selectedIndex
+        if(indice >= 0){
+            nomes.splice(indice, 1) //Remove do array
+            lis.remove(indice) //Remove do select
+        } else {
+            window.alert("Selecione um nome para ser removido!")
+        }
+    }
+
+    //Pesquisando nomes na lista
+    function pesquisar(){
+
+    }
+
+    //ANOTAÇÕES!!!!
+
+    /*selectIndex = A propriedade selectedIndex é usada em elementos do tipo <select> no HTML.
+    Ela retorna o índice (posição) da opção que está selecionada.*/
+
+    /*nomes.splice(indice, 1) = remove exatamente 1 elemento do array nomes na posição indice.
+    Ele também retorna um array com o(s) item(ns) removido(s). */
+
+    /*.trim() = Remove espaços em branco do começo e do fim da string.
+    Ex: " Lucas ".trim() → "Lucas" 
+    Ex*/
+</script>
+</html>
