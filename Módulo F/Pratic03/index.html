@@ -13,14 +13,16 @@
     <section>
         <input type="text" name="txtname" id="txtname">
         <input type="button" value="Adicionar" onclick="adicionar()">
-        <input type="button" value="Pesquisar" onclick="pesquisar()">
+        <input type="button" value="Remover" onclick="remover()">
         <br><br><select name="lista" id="lista" size="8"></select>
-        <br><input type="button" value="Remover" onclick="remover()">
+        <br><input type="button" value="Pesquisar" onclick="pesquisar()">
+        <p id="res"></p>
     </section>
 </body>
 <script>
     let nome = document.getElementById("txtname")
     let lis = document.getElementById("lista")
+    let res = document.getElementById("res")
     let nomes = []
 
     function adicionar(){
@@ -52,7 +54,13 @@
 
     //Pesquisando nomes na lista
     function pesquisar(){
-
+        if(nome.value.trim() === ""){
+            window.alert("Digite um nome para pesquisar")
+        } else if(nomes.includes(nome.value)) {
+            res.innerHTML = `O nome: ${nome.value} esta na lista`
+        } else {
+            res.innerHTML = `O nome ${nome.value} não esta na lista`
+        }
     }
 
     //ANOTAÇÕES!!!!
@@ -65,6 +73,6 @@
 
     /*.trim() = Remove espaços em branco do começo e do fim da string.
     Ex: " Lucas ".trim() → "Lucas" 
-    Ex*/
+    Ex: " ".trim() → "" (vira uma string vazia).*/
 </script>
 </html>
