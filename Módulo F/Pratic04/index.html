@@ -9,13 +9,17 @@
 <body>
     <h1>Detector de Tecla</h1>
     <p id="res">Nenhuma tecla pressionada ainda...</p>
+    <p id="detalhes" class="info"></p>
 </body>
 <script>
     //Escuta o evento da tecla no documento inteiro
     document.addEventListener("keydown", function(event) {
         let res = document.getElementById("res")
+        let detalhes = document.getElementById("detalhes")
 
-        let tecla = event.key //A função com o parametro event recebe a tecla pressionada
+        let tecla = event.key //A variavel TECLA recebe a função com o paramentro event a tecla pressionada
+
+        let codigo = event.code //A variavel codigo recebe a função com o parametro event o codigo da tela pressionada
 
         //Verificando se a tecla pressionada é um numero 
         if(!isNaN(tecla)){
@@ -23,6 +27,14 @@
         } else {
             res.innerHTML = `Você pressionou a tecla: ${tecla}`
         }
+
+        detalhes.innerHTML = `
+        Código da tecla: <strong>${codigo}</strong><br>
+        Shift pressionado? ${event.shiftKey ? "SIM" : "NÃO"}<br>
+        Ctrl pressionado? ${event.ctrlKey ? "SIM" : "NÃO"}<br>
+        Alt pressionado? ${event.altKey ? "SIM" : "NÃO"}
+        `
+
     })
 
     //ANOTAÇÔES !!!
