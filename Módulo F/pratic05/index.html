@@ -13,38 +13,98 @@
     <section>
         Adivinhe o numero secreto entre 1 e 20
         <input type="number" name="txtnum" id="tentativa"> 
-        <input type="button" value="Chutar" onclick="chutar()">
+        <input type="button" value="Chutar" id="chutar" onclick="verificar()">
+        <button id="reiniciar" onclick="fimDeJogo()">Jogar Novamente</button>
         <div id="res"></div>
         
     </section>
     <footer>
         <p>&copy;Copyright</p>
     </footer>
-</body>
 <script>
-    //Numero secreto gerado automaticamente
-    let numsecreto = Math.floor(Math.random() * 20) + 1
-    let tentativa = 0
+    let numeroSecreto
+    let tentativas
 
-    function chutar() {
-        let tentativa = document.getElementById("tentativa")
-        let res = document.getElementById("res")
-        let valor = Number(tentativa.value)
-        tentativa++
+    // Inicializa o jogo
+    iniciar()
 
-        if(valor === numsecreto) {
-            res.innerHTML = `Parabens! Você acertou o numero secreto ${numsecreto}`
-        } else if(valor < numsecreto) {
-            res.innerHTML = "O numero secreto é maior!"
-        } else if(valor > numsecreto) {
-            res.innerHTML = "O numero secreto é menor!"
-        }
+    // Função que configura o início do jogo
+    function iniciar() {
+      numeroSecreto = Math.floor(Math.random() * 50) + 1 // número secreto entre 1 e 50
+      tentativas = 0
+      document.getElementById("res").innerHTML = "Boa sorte!"
+      document.getElementById("tentativa").value = ""
+      document.getElementById("tentativa").disabled = false
+      document.getElementById("chutar").disabled = false
+      document.getElementById("reiniciar").style.display = "none"
+    }
 
-        tentativa.value = ""
-        tentativa.focus()
+    // Função que verifica o palpite
+    function verificar() {
+      let tentativa = document.getElementById("tentativa")
+      let res = document.getElementById("res")
+      let valor = Number(tentativa.value)
+      tentativas++
+
+      if (valor === numeroSecreto) {
+        res.innerHTML = `🎉 Parabéns! Você acertou o número secreto ${numeroSecreto} em ${tentativas} tentativas.`
+        fimDeJogo()
+      } else if (valor < numeroSecreto) {
+        res.innerHTML = "📉 O número secreto é maior!"
+      } else {
+        res.innerHTML = "📈 O número secreto é menor!"
+      }
+
+      tentativa.value = ""
+      tentativa.focus()
+    }
+
+    // Função que finaliza o jogo
+    function fimDeJogo() {
+      document.getElementById("tentativa").disabled = true
+      document.getElementById("chutar").disabled = true
+      document.getElementById("reiniciar").style.display = "inline-block"
+    }
+
+    // Função que reinicia o jogo
+    function novoJogo() {
+      iniciar()
     }
 
     //ANOTAÇÕES!!!
-    //Math.random() e Math.floor() para gerar numeros aleatórios
-</script>
+    /*
+    Math.random() → gera um número aleatório entre 0 e 1 (ex: 0.3523).
+    Math.random() * 50 → gera entre 0 e 49.9999.
+    Math.floor(...) → arredonda para baixo (0 até 49).
+    +1 → ajusta para ficar de 1 até 50.
+    */
+
+    /* Reativa o campo de entrada
+
+    document.getElementById("tentativa").disabled = false
+    - Se o campo estava desativado porque o jogador já tinha vencido, ele é reativado.
+    - Agora dá para digitar de novo.
+    */
+
+    /* Reativa o botão “Chutar”
+
+    document.querySelector("input[type=button]").disabled = false
+    document.querySelector("input[type=button]").disabled = false
+    - Mesmo raciocínio: se o botão tinha sido bloqueado no fim do jogo, ele é reativado.
+    */
+
+    /* Bloqueia o campo de entrada
+
+    document.getElementById("tentativa").disabled = true
+    - O jogador não pode mais digitar novos números depois que o jogo terminou.
+    - Isso impede de continuar chutando após já ter vencido (ou perdido, numa versão com limite de tentativas).
+    */
+
+    /* Bloqueia o botão “Chutar”
+    document.querySelector("input[type=button]").disabled = true
+    - Além do campo, também desativa o botão de envio.
+    - Isso reforça que a rodada acabou.
+    */
+  </script>
+</body>
 </html>
