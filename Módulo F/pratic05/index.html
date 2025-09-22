@@ -11,10 +11,10 @@
         <h1>Jogo do Numero Secreto</h1>
     </header>
     <section>
-        Adivinhe o numero secreto entre 1 e 20
+        Adivinhe o numero secreto entre 1 e 50
         <input type="number" name="txtnum" id="tentativa"> 
         <input type="button" value="Chutar" id="chutar" onclick="verificar()">
-        <button id="reiniciar" onclick="fimDeJogo()">Jogar Novamente</button>
+        <button id="reiniciar" onclick="novoJogo()">Jogar Novamente</button>
         <div id="res"></div>
         
     </section>
@@ -59,7 +59,7 @@
       tentativa.focus()
     }
 
-    // Função que finaliza o jogo
+    // Função que configura o fim do jogo
     function fimDeJogo() {
       document.getElementById("tentativa").disabled = true
       document.getElementById("chutar").disabled = true
