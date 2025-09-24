@@ -11,7 +11,7 @@
         <h1>Jogo do Numero Secreto</h1>
     </header>
     <section>
-        Adivinhe o numero secreto entre 1 e 50
+        Adivinhe o numero secreto entre 1 e 50 (Em 10 tentativas)
         <input type="number" name="txtnum" id="tentativa"> 
         <input type="button" value="Chutar" id="chutar" onclick="verificar()">
         <button id="reiniciar" onclick="novoJogo()">Jogar Novamente</button>
@@ -24,6 +24,7 @@
 <script>
     let numeroSecreto
     let tentativas
+    let limite = 10
 
     // Inicializa o jogo
     iniciar()
@@ -53,6 +54,11 @@
         res.innerHTML = "📉 O número secreto é maior!"
       } else {
         res.innerHTML = "📈 O número secreto é menor!"
+      } 
+
+      if (tentativas >= limite) {
+         res.innerHTML = "Numero de tentativas excedidas! Boa sorte na proxima!" 
+         fimDeJogo()
       }
 
       tentativa.value = ""
