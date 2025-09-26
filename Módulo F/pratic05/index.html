@@ -24,7 +24,6 @@
 <script>
     let numeroSecreto
     let tentativas
-    let limite = 10
 
     // Inicializa o jogo
     iniciar()
@@ -45,6 +44,7 @@
       let tentativa = document.getElementById("tentativa")
       let res = document.getElementById("res")
       let valor = Number(tentativa.value)
+      let limite = 10
       tentativas++
 
       if (valor === numeroSecreto) {
@@ -56,6 +56,7 @@
         res.innerHTML = "📈 O número secreto é menor!"
       } 
 
+      //Limite de tentativas
       if (tentativas >= limite) {
          res.innerHTML = "Numero de tentativas excedidas! Boa sorte na proxima!" 
          fimDeJogo()
