@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cronômetro</title>
+</head>
+<body>
+    <header>
+        <h1>Cronômetro</h1>
+    </header>
+    <section>
+    <input type="button" value="Iniciar Cronômetro" onclick="iniciar()">
+    <input type="button" value="Pausar" onclick="pausar()">
+    <input type="button" value="Zerar Cronômetro" onclick="zerar()">
+    
+    <div id="res">0</div>
+    
+    </section>
+    <footer>
+        <p>&copy;Copyright</p>
+    </footer>
+<script>
+    let segundos = 0
+    let cronometro = null
+
+    // Mostrando o tempo na tela
+    function tempo() {
+      segundos++
+      document.getElementById("res").innerHTML = segundos
+    }
+
+    function iniciar() {
+      if(cronometro === null) {
+        // setInterval executa uma função a cada intervalo de tempo (em ms)
+        cronometro = setInterval(tempo, 1000)
+      }
+    }
+
+    function pausar() {
+      // clearInterval para a execução do setInterval
+      clearInterval(cronometro)
+      cronometro = null
+    }
+
+    function zerar() {
+      clearInterval(cronometro)
+      cronometro = null
+      segundos = 0
+      document.getElementById("res").innerHTML = segundos
+    }
+
+    //ANOTAÇÕES
+    /*
+    setInterval(funcao, tempo)
+
+    - Executa a função repetidamente a cada intervalo de tempo (em milissegundos).
+    - Exemplo
+      setInterval(atualizarTempo, 1000) // chama atualizarTempo a cada 1 segundo
+    */
+
+   /*
+   clearInterval(id)
+
+   - Para a execução de um setInterval. Precisa receber o id retornado pelo setInterval. Por isso usamos: 
+
+   cronometro = setInterval(atualizarTempo, 1000)
+   clearInterval(cronometro)
+   */
+
+  //Quando cronometro === null, sabemos que o cronômetro está parado.
+</script>
+</body>
+</html>
