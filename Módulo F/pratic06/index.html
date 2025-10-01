@@ -14,8 +14,7 @@
     <input type="button" value="Iniciar Cronômetro" onclick="iniciar()">
     <input type="button" value="Pausar" onclick="pausar()">
     <input type="button" value="Zerar Cronômetro" onclick="zerar()">
-    
-    <div id="res">0</div>
+    <div id="res">00:00</div>
     
     </section>
     <footer>
@@ -25,16 +24,26 @@
     let segundos = 0
     let cronometro = null
 
-    // Mostrando o tempo na tela
-    function tempo() {
+    function formatarTempo(segundosTot) {
+      let minutos = Math.floor(segundosTot/60)
+      let segundos = segundosTot % 60
+
+      // padStart garante que sempre tenha 2 dígitos (ex: "05", "09")
+      let m = String(minutos).padStart(2, "0")
+      let s = String(segundos).padStart(2, "0")
+
+      return `${m}:${s}`
+    }
+
+    function atualizarTempo() {
       segundos++
-      document.getElementById("res").innerHTML = segundos
+      document.getElementById("res").innerText = formatarTempo(segundos)
     }
 
     function iniciar() {
       if(cronometro === null) {
         // setInterval executa uma função a cada intervalo de tempo (em ms)
-        cronometro = setInterval(tempo, 1000)
+        cronometro = setInterval(atualizarTempo, 1000)
       }
     }
 
@@ -47,7 +56,7 @@
     function zerar() {
       clearInterval(cronometro)
       cronometro = null
-      segundos = 0
+      segundos = "00:00"
       document.getElementById("res").innerHTML = segundos
     }
 
@@ -67,9 +76,46 @@
 
    cronometro = setInterval(atualizarTempo, 1000)
    clearInterval(cronometro)
+
+   Quando cronometro === null, sabemos que o cronômetro está parado.
    */
 
-  //Quando cronometro === null, sabemos que o cronômetro está parado.
+  
+
+  //Entendendo alguma funções
+  /*
+  function formatarTempo(segundosTotais)
+  - Essa função recebe um número inteiro (segundosTotais) que representa o tempo em segundos (ex.: 0, 5, 65, 3605).
+  
+  let minutos = Math.floor(segundosTotais / 60)
+  - segundosTotais / 60 converte segundos em minutos (resultado pode ser fracionário).
+  - Math.floor(...) pega a parte inteira (arredonda para baixo).
+    - Exemplos:
+      - Math.floor(5 / 60) → 0 (menos de 1 minuto)
+      - Math.floor(65 / 60) → 1 (65s = 1 minuto e resto)
+  - Resultado: minutos é um número inteiro (0, 1, 2, …).
+
+  Observação: Math.floor é adequado para valores positivos. Para negativos, o comportamento arredonda para baixo (ex.: -0.1 → -1); em casos onde quiser truncar a parte decimal independentemente do sinal, usar Math.trunc().
+
+  let segundos = segundosTotais % 60
+  - O operador % (modulo) retorna o resto da divisão. Assim segundos será sempre um valor entre 0 e 59.
+    - Exemplos:
+      - 5 % 60 → 5
+      - 65 % 60 → 5
+      - 3600 % 60 → 0
+  - Resultado: quantidade de segundos remanescente no minuto atual.
+
+  let m = String(minutos).padStart(2, "0")
+  let s = String(segundos).padStart(2, "0")
+  - String(minutos) converte o número em string (ex.: 1 → "1").
+  - .padStart(2, "0") garante pelo menos 2 caracteres, preenchendo à esquerda com "0" quando necessário:
+    - "1".padStart(2,"0") → "01"
+    - "12".padStart(2,"0") → "12"
+    - "120".padStart(2,"0") → "120" (não corta, mantém 3 dígitos se já houver)
+  - Assim m e s ficam sempre com formato legível de 2 dígitos quando possível
+
+  Observação: se minutos passar de 99, padStart(2,"0") não limita o tamanho — ele apenas garante no mínimo 2 caracteres.
+  */
 </script>
 </body>
 </html>
